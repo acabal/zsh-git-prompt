@@ -233,6 +233,9 @@ def main():
     if err.lower().startswith('fatal: not a git repository'):
         return
 
+    if err.lower().startswith('fatal: this operation must be run in a work tree'):
+        return
+
     try:
         sys.stdout.write(current_git_status(lines))
         sys.stdout.flush()
